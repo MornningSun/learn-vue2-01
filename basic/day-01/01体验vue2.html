@@ -11,20 +11,31 @@
   <!-- 1.定义一个容器 -->
   <div id="app">
     <!-- 4.渲染响应式数据 -->
-    <p>姓名:{{uname}}</p>
-    <p>年龄:{{age}}</p>
+    <!-- 差值表达式{{}} 语法   胡子语法: mustache-->
+    <!-- 作用:可以调用方法  支持三元表达式 -->
+    <!-- 注意事项 -->
+    <!-- 1.不支持书写语句,如if分支语句和for循环语句等 -->
+    <!-- 2. 书写在标签内的属性值-->
+    <p>姓名:{{uname.toUpperCase()}}</p>
+    <p>年龄:{{age>=18?'成年人':'未成年人'}}</p>
     <p>朋友的姓名:{{friend.uname}}</p>
     <p>朋友的性别:{{friend.gender}}</p>
+    <a href="{{url}}">去百度</a>
+    <!-- <p>{{for}}</p> -->
   </div>
   <!-- 2.引包  vue文件 -->
+  <!-- 开发环境的版本   体积大,但是报错提示清晰-->
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- 生产环境的版本   占用内存小,速度快  但是提示能力不足-->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
   <!-- 创建实例化Vue -->
   <script>
     let vm = new Vue({
       el: '#app',//挂在到id=app容器
       data: {
         uname: 'zhangsan',
-        age: 18,
+        age: 1,
+        url: 'https://www.baidu.com',
         friend: {
           uname: 'lisi',
           gender: '男'
