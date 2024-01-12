@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 创建容器 -->
+  <div id="app">
+    <!-- v-show:利用css行内样式display:none实现隐藏,适合使用频繁的场景 用css样式实现隐藏内存消耗相对较小 -->
+    <p v-show="isShow">我是v-show</p>
+    <!-- v-if:操作BOM删除元素实现隐藏,适合不频繁的场景  (回流) -->
+    <p v-if="isShow">我是v-if</p>
+  </div>
+  <!-- 引包 -->
+  <script src="./js/vue2.js"></script>
+  <!-- 实例化 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        isShow: true
+      }
+    })
+  </script>
+
+</body>
+
+</html>
